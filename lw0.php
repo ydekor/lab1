@@ -1,5 +1,5 @@
 <?php
-function calculator(string $str)
+function calculator(string $str): string
 {
     $operator = '';
     $digit1 = '';
@@ -9,15 +9,15 @@ function calculator(string $str)
     for ($i = 0; $i < strlen($str); ++$i) {
 
         if (is_numeric($str[$i])) {
-            if ($operator == '') {
+            if ($operator === '') {
                 $digit1 = $digit1 . $str[$i];
             } else {
                 $digit2 = $digit2 . $str[$i];
             }
         } else {
             if ($str[$i] === '+' || $str[$i] === '-') {
-                if ($operator != '' && $digit1 != '' && $digit2 != '') {
-                    if ($operator == '+') {
+                if ($operator !== '' && $digit1 !== '' && $digit2 !== '') {
+                    if ($operator === '+') {
                         $digit1 = $digit1 + $digit2;
                     } else {
                         $digit1 = $digit1 - $digit2;
@@ -31,8 +31,8 @@ function calculator(string $str)
             }
         }
     }
-    if ($operator != '' && $digit1 != '' && $digit2 != '') {
-        if ($operator == '+') {
+    if ($operator !== '' && $digit1 !== '' && $digit2 !== '') {
+        if ($operator === '+') {
             $result = $digit1 + $digit2;
         } else {
             $result = $digit1 - $digit2;
